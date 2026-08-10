@@ -7,8 +7,9 @@ This repository implements a multi-modal deep learning framework to predict mult
 ## 📊 Pre-Trained Model Status & Performance
 
 > [!NOTE]
-> **The model is ALREADY pre-trained** and ready for inference and evaluation. 
-> The checkpoint is saved at `./savepoints/0/model_checkpoint`.
+> **The model is ALREADY pre-trained** and ready for inference and evaluation.
+> Download it from: [Download from gdrive](https://drive.google.com/file/d/13mc5u2DxLC5NmHdC4H0qCvJztei7PvkU/view?usp=sharing)  
+> Save it at `./savepoints/0/model_checkpoint`.
 
 Evaluated on **37,652 test drug-pair samples** (Fold 0):
 
