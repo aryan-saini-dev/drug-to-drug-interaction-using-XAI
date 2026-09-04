@@ -2,15 +2,17 @@ services:
   - type: web
     name: ddi-xai-backend
     runtime: python
-    plan: starter          # Use 'free' if you want free tier (512 MB RAM limit)
-    region: oregon         # Change to 'frankfurt' etc. if preferred
+    plan: starter          # Starter ($7/mo) gives 512MB RAM + no sleep. Free tier only has 512MB which is too tight.
+    region: oregon
     buildCommand: bash render-build.sh
     startCommand: uvicorn api_server:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /api/health
     envVars:
       - key: GEMINI_API_KEY
-        sync: false        # You will paste this manually in the Render dashboard
+        sync: false        # Paste your Gemini API key in the Render dashboard
       - key: GEMINI_MODEL
         value: gemini-2.5-flash
+      - key: ALLOWED_ORIGINS
+        sync: false        # Paste your HF Space URL: https://Yaminokirito-ddi-xai-demo.hf.space
       - key: PYTHON_VERSION
-        value: "3.12"
+        value: "3.12"      # Python 3.12 — stable LTS, all wheels available on PyPI
