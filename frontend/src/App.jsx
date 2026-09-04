@@ -6,6 +6,7 @@ import MultiDrugRegimentView from './components/MultiDrugRegimentView';
 import ModelSpecsView from './components/ModelSpecsView';
 import GeminiVerificationModal from './components/GeminiVerificationModal';
 import BenchmarkModal from './components/BenchmarkModal';
+import ServerWarmingBanner from './components/ServerWarmingBanner';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState("regiment");
@@ -38,6 +39,8 @@ export default function App() {
 
   return (
     <div className="clinical-app-shell">
+      {/* Cold-start detection for Render free-tier backend */}
+      <ServerWarmingBanner />
       {/* Top Clinical Header Bar */}
       <header className="clinical-topbar">
         <div className="topbar-brand">

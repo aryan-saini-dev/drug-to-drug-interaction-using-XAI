@@ -1,6 +1,9 @@
-// In production (Vercel), set VITE_API_BASE_URL to your Render backend URL e.g. https://ddi-xai-backend.onrender.com/api
-// In local dev the Vite proxy rewrites /api → http://localhost:8000/api so leave this as /api
-const API_BASE = import.meta.env.VITE_API_BASE_URL ?? "/api";
+// Priority: runtime config.js (HF Static Space) → Vite env var (Vercel) → /api proxy (local dev)
+const API_BASE =
+  (typeof window !== "undefined" && window.APP_CONFIG?.API_BASE_URL &&
+   !window.APP_CONFIG.API_BASE_URL.includes("REPLACE_WITH"))
+    ? window.APP_CONFIG.API_BASE_URL
+    : (import.meta.env.VITE_API_BASE_URL ?? "/api");
 
 export async function fetchDrugAutocomplete(query, limit = 15) {
   const res = await fetch(`${API_BASE}/drugs?query=${encodeURIComponent(query)}&limit=${limit}`);
@@ -43,7 +46,8 @@ export async function fetchGraphSchema() {
   return await res.json();
 }
 
-export async function fetchHealthCheck() {
-  const res = await fetch(`${API_BASE}/health`);
+export async function fetchHealthCheck(signal) {
+  const res = await fetch(`${API_BASE}/health`, signal ? { signal } : {});
+  if (!res.ok) throw new Error(`Health check failed: ${res.status}`);
   return await res.json();
 }
