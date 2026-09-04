@@ -1,10 +1,15 @@
-# Ignore only the local environment and large model artifact
+# Ignore local environment, cache, build artifacts and large model weights
 venv/
 .env/
 .venv/
 ENV/
 env/
 src/venv/
-model_checkpoint
-
-
+__pycache__/
+*.pyc
+frontend/node_modules/
+frontend/dist/
+.env
+.env.local
+**/model_checkpoint
+savepoints/
