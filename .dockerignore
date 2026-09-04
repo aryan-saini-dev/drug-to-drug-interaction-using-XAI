@@ -1,0 +1,20 @@
+# HF Spaces ignores these during Docker build context
+venv/
+.venv/
+ENV/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.git/
+.gitignore
+frontend/node_modules/
+frontend/dist/
+*.md
+*.ipynb
+.env
+.env.local
+predict_ddi_xai/
+shap_test_final.npz
+shap_train_final.npz
