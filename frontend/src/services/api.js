@@ -1,4 +1,6 @@
-const API_BASE = "/api";
+// In production (Vercel), set VITE_API_BASE_URL to your Render backend URL e.g. https://ddi-xai-backend.onrender.com/api
+// In local dev the Vite proxy rewrites /api → http://localhost:8000/api so leave this as /api
+const API_BASE = import.meta.env.VITE_API_BASE_URL ?? "/api";
 
 export async function fetchDrugAutocomplete(query, limit = 15) {
   const res = await fetch(`${API_BASE}/drugs?query=${encodeURIComponent(query)}&limit=${limit}`);
