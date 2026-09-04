@@ -63,13 +63,15 @@ PORT=8000
 ### 3. Pre-trained Model Checkpoint (Optional)
 
 > [!NOTE]
-> **Pre-trained Weights Location**: The pre-trained model checkpoint (`model_checkpoint`, ~183 MB) should be located at `savepoints/0/model_checkpoint`. If setting up on a new environment, place or download the checkpoint file into `savepoints/0/`:
+> **Pre-trained Weights Location**: The pre-trained model checkpoint (`model_checkpoint`, ~183 MB) should be placed at `savepoints/0/model_checkpoint`.
+> 
+> - 📥 **Download Checkpoint**: [Download Pre-trained Model (`model_checkpoint`) on Google Drive](https://drive.google.com/file/d/13mc5u2DxLC5NmHdC4H0qCvJztei7PvkU/view?usp=sharing)
+> 
 > ```bash
-> # Create directory if it does not exist
+> # Create savepoints directory (if it does not exist)
 > mkdir -p savepoints/0
 > 
-> # Download or place the model checkpoint (if downloading from GitHub Releases or Google Drive)
-> # curl -L -o savepoints/0/model_checkpoint <MODEL_DOWNLOAD_URL>
+> # Place the downloaded 'model_checkpoint' file into savepoints/0/
 > ```
 
 ### 4. Backend Setup (FastAPI)
