@@ -56,6 +56,8 @@ cp .env.example .env
 Edit `.env` to add your Google Gemini API key:
 ```env
 GEMINI_API_KEY=your_actual_gemini_api_key_here
+GEMINI_MODEL=gemini-2.5-flash
+PORT=8000
 ```
 
 ### 3. Backend Setup (FastAPI)
