@@ -62,9 +62,15 @@ PORT=8000
 
 ### 3. Backend Setup (FastAPI)
 
-Install Python backend dependencies and start the API server on port **8000**:
+Create a virtual environment, install Python backend dependencies, and start the API server on port **8000**:
 
 ```bash
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment (VS Code PowerShell terminal)
+.\venv\Scripts\Activate.ps1
+
 # Install Python dependencies
 pip install torch numpy pandas scikit-learn fastapi uvicorn pydantic requests google-genai langgraph shap matplotlib
 
